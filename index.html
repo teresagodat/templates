@@ -51,12 +51,12 @@
         <br>
         <label>Gender: <br><input type="text" id="input-gender" name="gender" {{#if isEdit}}value="{{petVal.gender}}"{{/if}}></label><br>
         <br>
-        <input type="submit" name="Submit">
+        <input type="submit" value="Submit">
         {{#if isEdit}}
         {{else}}
-          <input type="reset">
+          <input type="reset" value="Clear">
         {{/if}}
-        <button type="button" onclick="$.myOnCancel()">Cancel</button>
+        <button type="button" value="Cancel" onclick="$.myOnCancel()">Cancel</button>
       </form>
   </script>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="  crossorigin="anonymous"></script>
