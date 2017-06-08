@@ -43,13 +43,15 @@
         <h2>Enter Pet Info</h2>
         <form id="formPet" onsubmit="$.myOnSubmitAdd(event)" name="PetAdd">
       {{/if}}
-        <label>Pet Name: <input type="text" id="input-name" name="petName" {{#if isEdit}}value="{{petVal.petName}}"{{/if}} required></label>
+        <label>Pet Name:<br> <input type="text" id="input-name" name="petName" {{#if isEdit}}value="{{petVal.petName}}"{{/if}} required></label>
         <br>
-        <label>Breed: <input type="text" id="input-breed" name="breed" {{#if isEdit}}value="{{petVal.breed}}"{{/if}}></label>
         <br>
-        <label>gender: <input type="text" id="input-gender" name="gender" {{#if isEdit}}value="{{petVal.gender}}"{{/if}}></label><br/>
+        <label>Breed: <br> <input type="text" id="input-breed" name="breed" {{#if isEdit}}value="{{petVal.breed}}"{{/if}}></label>
         <br>
-        <input type="submit">
+        <br>
+        <label>Gender: <br><input type="text" id="input-gender" name="gender" {{#if isEdit}}value="{{petVal.gender}}"{{/if}}></label><br>
+        <br>
+        <input type="submit" name="Submit">
         {{#if isEdit}}
         {{else}}
           <input type="reset">
