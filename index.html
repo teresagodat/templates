@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>HTML5-300B assignment 8</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <header>
+    <h1>Assignment 8: Templates</h1>
+  </header>
+  <main>
+    <h1>Pet Information</h1>
+    <hr>
+    <div id="mainDiv"></div>
+  </main>
+  <script id="tableTemplate" type="text/x-handlebars-template">
+    <h2>Pet Info Table</h2>
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Dog's Name</th><th>Breed</th><th>Gender</th><th></th>
+        </tr>
+      </thead>
+      <tbody>
+         {{#each petsData}}
+            <tr>
+              <td>{{petName}}</td>
+              <td>{{breed}}</td>
+              <td>{{gender}}</td>
+              <td><button onclick="$.myOnEdit('{{_id}}')">Edit</button><button onclick="$.myOnDelete('{{_id}}')">Delete</button></td>
+            </tr>
+          {{/each}}
+      </tbody>
+    </table>
+    <br>
+    <button onclick="$.myOnAddPet()">Add Pet Info</button>
+  </script>
+  <script id="formPetTemplate" type="text/x-handlebars-template">
+      {{#if isEdit}}
+        <h2>Enter Pet Info</h2>
+        <form id="formPet" onsubmit="$.myOnSubmitEdit(event, '{{petId}}')" name="PetEdit">
+      {{else}}
+        <h2>Enter Pet Info</h2>
+        <form id="formPet" onsubmit="$.myOnSubmitAdd(event)" name="PetAdd">
+      {{/if}}
+        <label>Pet Name: <input type="text" id="input-name" name="petName" {{#if isEdit}}value="{{petVal.petName}}"{{/if}} required></label>
+        <br>
+        <label>Breed: <input type="text" id="input-breed" name="breed" {{#if isEdit}}value="{{petVal.breed}}"{{/if}}></label>
+        <br>
+        <label>gender: <input type="text" id="input-gender" name="gender" {{#if isEdit}}value="{{petVal.gender}}"{{/if}}></label><br/>
+        <br>
+        <input type="submit">
+        {{#if isEdit}}
+        {{else}}
+          <input type="reset">
+        {{/if}}
+        <button type="button" onclick="$.myOnCancel()">Cancel</button>
+      </form>
+  </script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
+  <script type="text/javascript" src="js/template.js"></script>
+</body>
+</html>
